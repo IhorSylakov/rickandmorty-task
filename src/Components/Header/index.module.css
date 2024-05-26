@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+  background-color: #424242;
+}
+
+.nav {
+  display: flex;
+}
+
+.link {
+  padding: 15px 20px;
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
+.active {
+  color: #111;
+  background-color: #dcdcdc;
+}

@@ -1,0 +1,21 @@
+.link {
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #fff;
+  background-color: #303030;
+  transition: transform .3s linear;
+}
+.link:hover {
+  transform: scale(1.15);
+}
+
+.image {
+  width: 45%;
+}
+
+.description {
+  width: 55%;
+  padding: 10px;
+}

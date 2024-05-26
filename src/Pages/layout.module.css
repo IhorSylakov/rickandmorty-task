@@ -1,0 +1,31 @@
+.main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex: 1 0 auto;
+  display: flex;
+  padding: 30px;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.content {
+  overflow: hidden;
+}
+
+.contentImage {
+  float: left;
+  max-width: 33%;
+  min-width: 200px;
+  margin: 0 50px 50px 0;
+}
+
+.contentDescription {
+  overflow: hidden;
+  min-width: 300px;
+}
+
+.errorTitle {
+  margin: auto;
+  transform: scale(3);
+}
