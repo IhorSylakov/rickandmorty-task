@@ -4,11 +4,15 @@ import { loadList } from '../redux/actions';
 import List from '../Components/List';
 
 class Home extends React.Component {
+  state = {
+    hasFetchedData: false
+  };
 
   componentDidMount() {
     const { characters, nextPage } = this.props;
-    if (characters.length === 0) {
-      this.props.dispatch(loadList(nextPage))
+    if (characters.length === 0 && !this.hasFetchedData) {
+      this.props.dispatch(loadList(nextPage));
+      this.hasFetchedData = true;
     }
     window.addEventListener('scroll', this.handleScroll);
   }
@@ -18,12 +22,11 @@ class Home extends React.Component {
   }
 
   handleScroll = () => {
-    if(window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) {
-      return;
+    const threshold = 5;
+    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - threshold) {
+      const { nextPage } = this.props;
+      this.props.dispatch(loadList(nextPage));
     }
-
-    const { nextPage } = this.props;
-    this.props.dispatch(loadList(nextPage));
   }
 
   render() {

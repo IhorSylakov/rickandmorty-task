@@ -11,7 +11,7 @@ function ListItem({hero}) {
 
   return (
     <li>
-      <Link to={`/character/${id}`} className={styles.link}>
+      <Link to={`/rickandmorty-task/character/${id}`} className={styles.link}>
         <img src={image} className={styles.image} alt={name}/>
         <div className={styles.description}>
           <div>{name}</div>

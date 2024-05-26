@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
@@ -13,17 +13,17 @@ import About from './Pages/About';
 const App = () => (
   <div className="App">
     <Provider store={store}>
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route exact path='/rickandmorty-task' element={<Home />} />
-            <Route path='/character/:id' element={<Character />} />
+      <Router>
+        <Routes>
+          <Route path='/rickandmorty-task' element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path='/rickandmorty-task/character/:id' element={<Character />} />
             <Route path='/rickandmorty-task/contacts' element={<Contacts />} />
             <Route path='/rickandmorty-task/about' element={<About />} />
             <Route path='*' element={<ErrorPage />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
+          </Route>
+        </Routes>
+      </Router>
     </Provider>
   </div>
 )
