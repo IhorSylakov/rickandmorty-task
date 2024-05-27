@@ -24,7 +24,14 @@ const Character = () => {
     <>
       <h1>{name}</h1>
       <div className={styles.content}>
-        <img src={image} className={styles.contentImage} alt={name} />
+        <img
+          src={image}
+          className={styles.contentImage}
+          alt={name}
+          width={300}
+          height={300}
+          loading="lazy"
+        />
         <div className={styles.contentDescription}>
           <dl>
             <dt>status:</dt>
