@@ -3,7 +3,7 @@
   padding: 30px;
   align-items: center;
   justify-content: center;
-  background-color: #424242;
+  background-color: var(--header-bg-color);
 }
 
 .nav {
@@ -19,6 +19,6 @@
 }
 
 .active {
-  color: #111;
-  background-color: #dcdcdc;
+  color: var(--theme-color);
+  background-color: var(--header-active-bg);
 }

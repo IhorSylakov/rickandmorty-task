@@ -1,7 +1,50 @@
+
+
+:root {
+  --system-theme: enable;
+
+  container-name: html;
+}
+
+body {
+  --theme-color: #000;
+  --theme-bg-color: #fff;
+  --header-bg-color: #bdbdbd;
+  --header-active-bg: #999;
+
+  @container html style(--system-theme: enable) {
+    @media (prefers-color-scheme: light) {
+      --theme-color: #000;
+      --theme-bg-color: #fff;
+      --header-bg-color: #bdbdbd;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      --theme-color: #fff;
+      --theme-bg-color: #303030;
+      --header-bg-color: #424242;
+    }
+  }
+
+  @container html style(--system-theme: theme-light) {
+    --theme-color: #000;
+    --theme-bg-color: #fff;
+    --header-bg-color: #bdbdbd;
+  }
+
+  @container html style(--system-theme: theme-dark) {
+    --theme-color: #fff;
+    --theme-bg-color: #303030;
+    --header-bg-color: #424242;
+  }
+}
+
 body {
   margin: 0;
-  color: #fff;
-  background-color: #303030;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--theme-color);
+  background-color: var(--theme-bg-color);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,7 +53,7 @@ body {
 }
 
 a {
-  color: #fff;
+  color: var(--theme-color);
 }
 
 code {

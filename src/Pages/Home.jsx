@@ -3,10 +3,22 @@ import { connect } from 'react-redux';
 import { loadList } from '../redux/actions';
 import List from '../Components/List';
 
-class Home extends React.Component {
-  state = {
-    hasFetchedData: false
+function debounce(func, wait) {
+  let timeout;
+  return function(...args) {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
   };
+}
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasFetchedData: false
+    };
+    this.handleScroll = debounce(this.handleScroll.bind(this), 200);
+  }
 
   componentDidMount() {
     const { characters, nextPage } = this.props;
@@ -22,9 +34,10 @@ class Home extends React.Component {
   }
 
   handleScroll = () => {
-    const threshold = 5;
+    const threshold = 20;
     if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - threshold) {
       const { nextPage } = this.props;
+      console.log('handlescoll')
       this.props.dispatch(loadList(nextPage));
     }
   }

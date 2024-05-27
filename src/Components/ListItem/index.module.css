@@ -3,11 +3,12 @@
   align-items: flex-start;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 0 10px #fff;
-  background-color: #303030;
+  box-shadow: 0 0 10px var(--theme-color);
+  background-color: var(--theme-bg-color);
   transition: transform .3s linear;
 }
-.link:hover {
+.link:hover,
+.link:focus {
   transform: scale(1.15);
 }
 
