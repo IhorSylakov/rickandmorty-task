@@ -8,7 +8,7 @@ function Header() {
       <nav className={styles.nav}>
         <NavLink
           end
-          to='/rickandmorty-task'
+          to='/rickandmorty-task/'
           className={({ isActive }) =>
             isActive ? `${styles.link} ${styles.active}` : styles.link
           }
