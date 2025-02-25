@@ -15,11 +15,11 @@ const App = () => (
     <Provider store={store}>
       <Router>
         <Routes>
-          <Route path='/rickandmorty-task/' element={<Layout />}>
+          <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='/rickandmorty-task/character/:id' element={<Character />} />
-            <Route path='/rickandmorty-task/contacts' element={<Contacts />} />
-            <Route path='/rickandmorty-task/about' element={<About />} />
+            <Route path='/character/:id' element={<Character />} />
+            <Route path='/contacts' element={<Contacts />} />
+            <Route path='/about' element={<About />} />
             <Route path='*' element={<ErrorPage />} />
           </Route>
         </Routes>

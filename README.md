@@ -36,7 +36,7 @@ The application supports theming with dark and light themes. Currently, the them
 
 ## How it works
 
-[Check how it works](https://ihorsylakov.github.io/rickandmorty-task/)
+[Check how it works](https://rickandmorty-task.vercel.app/)
 
 ### Project setup
 ```

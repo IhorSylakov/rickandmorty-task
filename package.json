@@ -2,7 +2,6 @@
   "name": "rickandmorty-task",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://IhorSylakov.github.io/rickandmorty-task",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

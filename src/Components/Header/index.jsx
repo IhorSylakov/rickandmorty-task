@@ -8,7 +8,7 @@ function Header() {
       <nav className={styles.nav}>
         <NavLink
           end
-          to='/rickandmorty-task/'
+          to='/'
           className={({ isActive }) =>
             isActive ? `${styles.link} ${styles.active}` : styles.link
           }
@@ -16,7 +16,7 @@ function Header() {
           Home
         </NavLink>
         <NavLink
-          to='/rickandmorty-task/about'
+          to='/about'
           className={({ isActive }) =>
             isActive ? `${styles.link} ${styles.active}` : styles.link
           }
@@ -24,7 +24,7 @@ function Header() {
           About
         </NavLink>
         <NavLink
-          to='/rickandmorty-task/contacts'
+          to='/contacts'
           className={({ isActive }) =>
             isActive ? `${styles.link} ${styles.active}` : styles.link
           }
