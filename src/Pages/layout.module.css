@@ -4,25 +4,27 @@
   margin: 0 auto;
   flex: 1 0 auto;
   display: flex;
-  padding: 30px;
+  padding: var(--main-gap);
   box-sizing: border-box;
   flex-direction: column;
 }
 
 .content {
-  overflow: hidden;
+  gap: var(--main-gap);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .contentImage {
-  float: left;
-  max-width: 33%;
-  min-width: 200px;
-  margin: 0 50px 50px 0;
+  height: auto;
+  aspect-ratio: 1/1;
+  align-self: flex-start;
+  width: clamp(200px, 33%, 300px);
 }
 
 .contentDescription {
   overflow: hidden;
-  min-width: 300px;
+  flex: 1 0 min(100%, 400px);
 }
 
 .errorTitle {

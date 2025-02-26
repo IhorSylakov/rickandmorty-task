@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  padding: 30px;
+  padding: var(--main-gap);
   align-items: center;
   justify-content: center;
   background-color: var(--header-bg-color);

@@ -15,13 +15,13 @@ function ListItem({hero}) {
         <img
           src={image}
           className={styles.image}
-          alt={name}
+          alt={`This image shows what ${name} looks like`}
           width={132}
           height={132}
           loading="lazy"
         />
         <div className={styles.description}>
-          <div>{name}</div>
+          {name}
         </div>
       </Link>
     </li>

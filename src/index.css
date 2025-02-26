@@ -1,9 +1,13 @@
-
-
 :root {
   --system-theme: enable;
+  --main-gap: 15px;
 
   container-name: html;
+
+  @media only screen and (min-width: 768px) {
+    --main-gap: 30px;
+    --has-animation: yes;
+  }
 }
 
 body {
@@ -17,12 +21,14 @@ body {
       --theme-color: #000;
       --theme-bg-color: #fff;
       --header-bg-color: #bdbdbd;
+      --header-active-bg: #999;
     }
 
     @media (prefers-color-scheme: dark) {
       --theme-color: #fff;
       --theme-bg-color: #303030;
       --header-bg-color: #424242;
+      --header-active-bg: #666;
     }
   }
 
@@ -39,10 +45,14 @@ body {
   }
 }
 
+* {
+  margin-top: 0;
+}
+
 body {
   margin: 0;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 1.2rem;
+  line-height: 1.3;
   color: var(--theme-color);
   background-color: var(--theme-bg-color);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -54,6 +64,7 @@ body {
 
 a {
   color: var(--theme-color);
+  text-decoration: none;
 }
 
 code {

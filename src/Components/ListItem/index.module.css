@@ -5,18 +5,30 @@
   border-radius: 10px;
   box-shadow: 0 0 10px var(--theme-color);
   background-color: var(--theme-bg-color);
-  transition: transform .3s linear;
 }
-.link:hover,
-.link:focus {
-  transform: scale(1.15);
+@container html style(--has-animation: yes) {
+  .link {
+    transition: transform .3s linear;
+  }
+
+  .link:hover,
+  .link:focus {
+    transform: scale(1.12);
+  }
 }
 
 .image {
-  width: 45%;
+  height: auto;
+  aspect-ratio: 1/1;
+  width: clamp(120px, 45%, 150px);
 }
 
 .description {
-  width: 55%;
-  padding: 10px;
+  margin: 10px;
+  max-width: 55%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
