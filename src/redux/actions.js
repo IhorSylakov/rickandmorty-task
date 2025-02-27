@@ -22,7 +22,7 @@ export const loadList = (page) => {
 export const putHero = (dataFromServer) => {
   return {
     type: PUT_HERO,
-    id: dataFromServer
+    hero: dataFromServer
   }
 };
 

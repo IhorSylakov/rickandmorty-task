@@ -1,23 +1,17 @@
-import { createStore, compose, applyMiddleware } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import reducer from './reducers';
 import rootSaga from './sagas';
 
-/* eslint-disable no-underscore-dangle */
-const composeEnhancers =
-  process.env.NODE_ENV !== 'production' &&
-  typeof window === 'object' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
-/* eslint-enable */
-
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
+const store = configureStore({
   reducer,
-  composeEnhancers(applyMiddleware(sagaMiddleware)),
-)
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
+  devTools: process.env.NODE_ENV !== 'production',
+});
 
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga);
 
 export default store;

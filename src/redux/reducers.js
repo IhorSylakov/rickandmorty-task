@@ -6,14 +6,14 @@ const initialState = {
   pages: null,
   hero: {},
   nextPage: 'https://rickandmortyapi.com/api/character?page=1'
-} 
+}
 
 const data = (state = initialState, action) => {
   switch (action.type) {
     case PUT_LIST:
       return {
         ...state,
-        characters: state.characters.concat(action.characters),
+        characters: [...state.characters, ...action.characters],
         pages: action.pages,
         nextPage: action.nextPage
       };
@@ -25,7 +25,7 @@ const data = (state = initialState, action) => {
     case PUT_HERO:
       return {
         ...state,
-        hero: action.id
+        hero: action.hero
       };
     default:
       return state;

@@ -15,7 +15,7 @@ function ListItem({hero}) {
         <img
           src={image}
           className={styles.image}
-          alt={`This image shows what ${name} looks like`}
+          alt={`It shows what ${name} looks like`}
           width={132}
           height={132}
           loading="lazy"

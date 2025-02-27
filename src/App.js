@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
@@ -11,21 +11,17 @@ import Contacts from './Pages/Contacts';
 import About from './Pages/About';
 
 const App = () => (
-  <div className="App">
-    <Provider store={store}>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path='/character/:id' element={<Character />} />
-            <Route path='/contacts' element={<Contacts />} />
-            <Route path='/about' element={<About />} />
-            <Route path='*' element={<ErrorPage />} />
-          </Route>
-        </Routes>
-      </Router>
-    </Provider>
-  </div>
-)
+  <Provider store={store}>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path='/character/:id' element={<Character />} />
+        <Route path='/contacts' element={<Contacts />} />
+        <Route path='/about' element={<About />} />
+        <Route path='*' element={<ErrorPage />} />
+      </Route>
+    </Routes>
+  </Provider>
+);
 
 export default App;

@@ -1,65 +1,47 @@
-import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useRef, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { loadList } from '../redux/actions';
 import List from '../Components/List';
+import { debounce } from '../utils/Debounce';
 
-function debounce(func, wait) {
-  let timeout;
-  return function(...args) {
-    const context = this;
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(context, args), wait);
-  };
-}
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasFetchedData: false
-    };
-    this.handleScroll = debounce(this.handleScroll.bind(this), 200);
-  }
+const Home = () => {
+  const dispatch = useDispatch();
+  const characters = useSelector(state => state.data.characters);
+  const nextPage = useSelector(state => state.data.nextPage);
 
-  componentDidMount() {
-    const { characters, nextPage } = this.props;
-    if (characters.length === 0 && !this.hasFetchedData) {
-      this.props.dispatch(loadList(nextPage));
-      this.hasFetchedData = true;
+  const hasFetchedData = useRef(false);
+
+  useEffect(() => {
+    if (characters.length === 0 && !hasFetchedData.current) {
+      dispatch(loadList(nextPage));
+      hasFetchedData.current = true;
     }
-    window.addEventListener('scroll', this.handleScroll);
-  }
+  }, [characters.length, dispatch, nextPage]);
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  handleScroll = () => {
+  const debouncedHandleScroll = useMemo(() => debounce(() => {
     const threshold = 20;
-    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - threshold) {
-      const { nextPage } = this.props;
-      console.log('handlescoll')
-      this.props.dispatch(loadList(nextPage));
+    /* istanbul ignore next */
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight - threshold
+    ) {
+      dispatch(loadList(nextPage));
     }
-  }
+  }, 200), [dispatch, nextPage]);
 
-  render() {
-    const { characters } = this.props;
+  useEffect(() => {
+    window.addEventListener('scroll', debouncedHandleScroll);
+    return () => {
+      window.removeEventListener('scroll', debouncedHandleScroll);
+    };
+  }, [debouncedHandleScroll]);
 
-    return (
-      <Fragment>
-        <h1>A list of Rick and Morty's characters</h1>
-        <List characters={characters} />
-      </Fragment>
-    )
-  }
-}
+  return (
+    <>
+      <h1>A list of Rick and Morty's characters</h1>
+      <List characters={characters} />
+    </>
+  );
+};
 
-const mapStateToProps = (state) => {
-  return {
-    characters: state.data.characters,
-    pages: state.data.pages,
-    nextPage: state.data.nextPage
-  }
-}
-
-export default connect(mapStateToProps)(Home)
+export default Home;

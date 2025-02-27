@@ -38,6 +38,11 @@ The application supports theming with dark and light themes. Currently, the them
 
 [Check how it works](https://rickandmorty-task.vercel.app/)
 
+## Tests
+
+[![codecov](https://codecov.io/gh/IhorSylakov/rickandmorty-task/branch/main/graph/badge.svg)](https://codecov.io/gh/IhorSylakov/rickandmorty-task)
+
+
 ### Project setup
 ```
 npm install
