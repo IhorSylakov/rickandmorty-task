@@ -3,9 +3,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { GlobalStyles } from "./GlobalStyles";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root')
@@ -13,6 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Router>
+      <GlobalStyles />
       <App />
     </Router>
   </React.StrictMode>

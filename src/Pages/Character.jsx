@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import styles from "./layout.module.css";
+import { Content, ContentImage, ContentDescription } from "./SharedStyles";
 
 import { loadHero } from '../redux/actions';
 
@@ -23,16 +23,15 @@ const Character = () => {
   return (
     <>
       <h1>{name}</h1>
-      <div className={styles.content}>
-        <img
+      <Content>
+        <ContentImage
           src={image}
-          className={styles.contentImage}
           alt={name}
           width={300}
           height={300}
           loading="lazy"
         />
-        <div className={styles.contentDescription}>
+        <ContentDescription>
           <dl>
             <dt>status:</dt>
             <dd>{status}</dd>
@@ -45,8 +44,8 @@ const Character = () => {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium aspernatur minus optio facilis. Cumque exercitationem odit, tempore accusantium, enim iste omnis optio deleniti, repellat fugit labore quidem eveniet quasi quae.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium aspernatur minus optio facilis. Cumque exercitationem odit, tempore accusantium, enim iste omnis optio deleniti, repellat fugit labore quidem eveniet quasi quae.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium aspernatur minus optio facilis. Cumque exercitationem odit, tempore accusantium, enim iste omnis optio deleniti, repellat fugit labore quidem eveniet quasi quae.</p>
-        </div>
-      </div>
+        </ContentDescription>
+      </Content>
     </>
   );
 };

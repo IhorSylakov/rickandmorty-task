@@ -7,7 +7,8 @@ module.exports = {
     "src/**/*.{js,jsx,ts,tsx}", 
     "!src/index.js",
     "!src/reportWebVitals.js",
-    "!src/serviceWorker.js"
+    "!src/serviceWorker.js",
+    "!src/GlobalStyles.js",
   ],
   modulePathIgnorePatterns: ["<rootDir>/src/index.js"],
 };

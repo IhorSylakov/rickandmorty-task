@@ -1,10 +1,8 @@
 import React from 'react';
-import styles from "./layout.module.css";
+import { ErrorTitle } from "./SharedStyles";
 
 const ErrorPage = () => (
-  <div className={styles.errorTitle}>
-    <h1>404</h1>
-  </div>
+  <ErrorTitle>404</ErrorTitle>
 )
 
 export default ErrorPage;

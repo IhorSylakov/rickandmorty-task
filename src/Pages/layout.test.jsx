@@ -17,7 +17,7 @@ test("renders Layout with Header and Outlet", () => {
 
   expect(screen.getByRole("banner")).toBeInTheDocument();
   
-  expect(screen.getByRole("main")).toHaveClass("main");
+  expect(screen.getByRole("main")).toBeInTheDocument();
 
   expect(screen.getByTestId("outlet")).toHaveTextContent("Mocked Outlet");
 });

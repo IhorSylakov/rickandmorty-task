@@ -1,6 +1,32 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from "./index.module.css";
+import styled from 'styled-components';
+
+const StyledHeader = styled.header`
+  display: flex;
+  padding: var(--main-gap);
+  align-items: center;
+  justify-content: center;
+  background-color: var(--header-bg-color);
+`;
+
+const StyledNav = styled.nav`
+  display: flex;
+`
+
+const StyledNavLink = styled(NavLink)`
+  padding: 15px 20px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.active {
+    color: var(--theme-color);
+    background-color: var(--header-active-bg);
+  }
+`;
 
 const menu = [
   {
@@ -22,22 +48,19 @@ const menu = [
 
 function Header() {
   return (
-    <header className={styles.wrapper}>
-      <nav className={styles.nav}>
+    <StyledHeader>
+      <StyledNav>
         {menu && menu.map((item) => (
-          <NavLink
+          <StyledNavLink
             key={item.title}
             end={item.isExact}
             to={item.path}
-            className={({ isActive }) =>
-              isActive ? `${styles.link} ${styles.active}` : styles.link
-            }
           >
             {item.title}
-          </NavLink>
+          </StyledNavLink>
         ))}
-      </nav>
-    </header>
+      </StyledNav>
+    </StyledHeader>
   );
 }
 
