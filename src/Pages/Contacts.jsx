@@ -13,7 +13,7 @@ const Contacts = () => (
       {/* <dt>skype:</dt>
       <dd><a href="skype:isilakov85?chat">isilakov85</a></dd> */}
       <dt>telegram:</dt>
-      <dd><a href="tg://resolve?domain=igor_silakov">igor_silakov</a></dd>
+      <dd><a href="tg://resolve?domain=IhorPower">IhorPower</a></dd>
     </dl>
   </>
 )
